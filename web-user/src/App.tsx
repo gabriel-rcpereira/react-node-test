@@ -1,7 +1,7 @@
-import { TextField } from '@mui/material';
+import { TextField } from "@mui/material";
 
 const App = (): JSX.Element => {
-  return <TextField label="first component" placeholder="first component" />;
+  return <TextField label='first component' placeholder='first component' />;
 };
 
 export default App;

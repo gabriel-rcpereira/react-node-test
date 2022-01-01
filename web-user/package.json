@@ -29,10 +29,6 @@
     "lint": "eslint src",
     "lint:fix": "eslint src --quiet --fix"
   },
-  "prettier": {
-    "singleQuote": true,
-    "jsxSingleQuote": false
-  },
   "eslintConfig": {
     "extends": [
       "react-app",
