@@ -1,28 +1,7 @@
-import { createTheme, TextField, ThemeProvider } from '@mui/material';
+import { TextField } from '@mui/material';
 
-const theme = createTheme({
-  typography: {
-    fontFamily: [
-      '-apple-system',
-      'BlinkMacSystemFont',
-      '"Segoe UI"',
-      'Roboto',
-      '"Helvetica Neue"',
-      'Arial',
-      'sans-serif',
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
-    ].join(','),
-  },
-});
-
-function App() {
-  return (
-    <ThemeProvider theme={theme}>
-      <TextField />
-    </ThemeProvider>
-  );
-}
+const App = (): JSX.Element => {
+  return <TextField label="first component" placeholder="first component" />;
+};
 
 export default App;
