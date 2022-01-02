@@ -1,35 +1,46 @@
-import { MenuItem, TextField } from "@mui/material";
-import { ChangeEvent, useState } from "react";
+import { MenuItem, Select, InputLabel } from "@mui/material";
+import { Controller } from "react-hook-form";
 
-type IOptionProp = { key: string; value: string };
+type IOptionProp = { key: string; text: string };
 
 interface IProps {
   label: string;
   options: IOptionProp[];
+  name: string;
+  control: any; // FIXME
 }
 
-const SelectPrimary: React.FC<IProps> = ({ label, options }): JSX.Element => {
-  const [selectedValue, setSelectedValue] = useState("");
+const SelectPrimary: React.FC<IProps> = ({
+  label,
+  options,
+  name,
+  control,
+}): JSX.Element => {
+  const renderMenuItems = () => {
+    const optionsWithDefault = [...options, { key: "", text: "" }];
 
-  const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSelectedValue(event.target.value);
+    return optionsWithDefault.map(({ key, text }) => (
+      <MenuItem key={key} value={key}>
+        {text}
+      </MenuItem>
+    ));
   };
 
   return (
-    <TextField
-      select
-      label={label}
-      placeholder={label}
-      style={{ minWidth: "150px" }}
-      value={selectedValue}
-      onChange={handleOnChange}
-    >
-      {options.map(({ key, value }) => (
-        <MenuItem key={key} value={value}>
-          {value}
-        </MenuItem>
-      ))}
-    </TextField>
+    <Controller
+      name={name}
+      control={control}
+      render={({ field: { onChange, value } }) => {
+        return (
+          <>
+            <InputLabel>{label}</InputLabel>
+            <Select onChange={onChange} value={value} defaultValue=''>
+              {renderMenuItems()}
+            </Select>
+          </>
+        );
+      }}
+    />
   );
 };
 
