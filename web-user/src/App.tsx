@@ -1,7 +1,7 @@
-import { TextField } from "@mui/material";
+import UserForm from "./components/pages/users/UserForm";
 
 const App = (): JSX.Element => {
-  return <TextField label='first component' placeholder='first component' />;
+  return <UserForm />;
 };
 
 export default App;
