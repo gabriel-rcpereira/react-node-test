@@ -16,9 +16,9 @@ const theme = createTheme({
       "sans-serif",
       "Apple Color Emoji",
       "Segoe UI Emoji",
-      "Segoe UI Symbol",
-    ].join(","),
-  },
+      "Segoe UI Symbol"
+    ].join(",")
+  }
 });
 
 ReactDOM.render(

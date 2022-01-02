@@ -10,7 +10,7 @@ interface IProps {
 const InputDatePrimary: React.FC<IProps> = ({
   label,
   name,
-  control,
+  control
 }): JSX.Element => (
   <Controller
     name={name}

@@ -7,7 +7,7 @@ interface IProps {
   control: any; // FIXME
 }
 
-const InputPrimary: React.FC<IProps> = ({ label, name, control }) => (
+const InputTextPrimary: React.FC<IProps> = ({ label, name, control }) => (
   <Controller
     name={name}
     control={control}
@@ -25,4 +25,4 @@ const InputPrimary: React.FC<IProps> = ({ label, name, control }) => (
   />
 );
 
-export default InputPrimary;
+export default InputTextPrimary;

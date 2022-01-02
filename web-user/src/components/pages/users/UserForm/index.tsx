@@ -1,7 +1,7 @@
 import { Button, Paper } from "@mui/material";
 import { useForm } from "react-hook-form";
 
-import InputPrimary from "../../../commons/InputPrimary";
+import InputTextPrimary from "../../../commons/InputTextPrimary";
 import SelectPrimary from "../../../commons/SelectPrimary";
 import InputDatePrimary from "../../../commons/InputDatePrimary";
 
@@ -13,13 +13,15 @@ interface IUserForm {
 }
 
 const UserForm = (): JSX.Element => {
+  const defaultValues = {
+    firstName: "",
+    surname: "",
+    country: "",
+    birthday: ""
+  };
+
   const { handleSubmit, control } = useForm<IUserForm>({
-    defaultValues: {
-      firstName: "",
-      surname: "",
-      country: "",
-      birthday: "",
-    },
+    defaultValues
   });
 
   const onSubmitHandler = (data: IUserForm) => {
@@ -29,8 +31,8 @@ const UserForm = (): JSX.Element => {
   return (
     <Paper>
       <h1>Users Page</h1>
-      <InputPrimary label='First Name' name='firstName' control={control} />
-      <InputPrimary label='Surname' name='surname' control={control} />
+      <InputTextPrimary label='First Name' name='firstName' control={control} />
+      <InputTextPrimary label='Surname' name='surname' control={control} />
       <SelectPrimary
         label='Countries'
         name='country'

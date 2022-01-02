@@ -14,7 +14,7 @@ const SelectPrimary: React.FC<IProps> = ({
   label,
   options,
   name,
-  control,
+  control
 }): JSX.Element => {
   const renderMenuItems = () => {
     const optionsWithDefault = [...options, { key: "", text: "" }];
