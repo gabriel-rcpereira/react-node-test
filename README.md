@@ -7,6 +7,7 @@
 - Typescript
 - ESLint
 - UnitTests
+- MaterialUI
 - GraphQL ?
 
 # Backend
@@ -20,9 +21,3 @@
 - UnitTests
 - Clean Architecture
 - GraphQL ?
-
-- Create custom components
-
-- Create button
-
-- Implement reacthook forms
