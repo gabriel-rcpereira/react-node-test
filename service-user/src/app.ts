@@ -9,6 +9,6 @@ const port = 3000;
 app.use(express.json());
 app.use(cors());
 
-app.get("/", (req, res) => res.send({ data: { value: "Hello" }}));
+app.get("/", (, res) => res.send({ data: { value: "Hello" } }));
 
 server.listen(port, () => console.log(`Application started on port ${port}!`));
