@@ -20,3 +20,9 @@
 - UnitTests
 - Clean Architecture
 - GraphQL ?
+
+- Create custom components
+
+- Create button
+
+- Implement reacthook forms

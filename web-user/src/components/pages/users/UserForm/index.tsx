@@ -31,15 +31,31 @@ const UserForm = (): JSX.Element => {
   return (
     <Paper>
       <h1>Users Page</h1>
-      <InputTextPrimary label='First Name' name='firstName' control={control} />
-      <InputTextPrimary label='Surname' name='surname' control={control} />
+      <InputTextPrimary
+        label='First Name'
+        name='firstName'
+        control={control}
+        required
+      />
+      <InputTextPrimary
+        label='Surname'
+        name='surname'
+        control={control}
+        required
+      />
       <SelectPrimary
         label='Countries'
         name='country'
         control={control}
         options={[{ key: "BR", text: "Brazil" }]}
+        required
       />
-      <InputDatePrimary label='Birthday' name='birthday' control={control} />
+      <InputDatePrimary
+        label='Birthday'
+        name='birthday'
+        control={control}
+        required
+      />
       <Button onClick={handleSubmit(onSubmitHandler)} variant='outlined'>
         Save
       </Button>
