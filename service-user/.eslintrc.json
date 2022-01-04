@@ -6,10 +6,18 @@
   ],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".ts"]
+      }
+    }
+  },
   "rules": {
     "quotes": ["error", "double"],
     "import/no-unresolved": "error",
     "keyword-spacing": 2,
+    "no-empty-function": ["error", { "allow": ["constructors"] }],
     "no-new": "off",
     "no-prototype-builtins": "off",
     "no-restricted-syntax": "off",
@@ -52,6 +60,20 @@
         "js": "never",
         "ts": "never"
       }
-    ]
+    ],
+    "@typescript-eslint/member-delimiter-style": [
+      "error",
+      {
+        "multiline": {
+          "delimiter": "semi", // 'none' or 'semi' or 'comma'
+          "requireLast": true
+        },
+        "singleline": {
+          "delimiter": "semi", // 'semi' or 'comma'
+          "requireLast": true
+        }
+      }
+    ],
+    "comma-dangle": ["error", "never"]
   }
 }
