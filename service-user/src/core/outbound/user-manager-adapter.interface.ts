@@ -1,7 +1,7 @@
-import User from "../domains/User";
+import User from "../domains/user";
 
 interface IUserManagerAdapter {
-  findAll: () => User[];
+  findAll: () => Promise<User[]>;
 }
 
 export default IUserManagerAdapter;
