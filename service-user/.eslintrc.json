@@ -14,7 +14,8 @@
     }
   },
   "rules": {
-    "quotes": ["error", "double"],
+    "newline-per-chained-call": ["error", { "ignoreChainWithDepth": 2 }],
+    "quotes": ["error", "single"],
     "import/no-unresolved": "error",
     "keyword-spacing": 2,
     "no-empty-function": ["error", { "allow": ["constructors"] }],

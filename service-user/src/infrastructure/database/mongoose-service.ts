@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 class MongooseService {
   private readonly mongooseOptions = {
@@ -18,12 +18,12 @@ class MongooseService {
   public getMongoose = () => mongoose;
 
   private connectWithRetry = () => {
-    console.log("Connecting on MongoDB database.");
+    console.log('Connecting on MongoDB database.');
 
     mongoose
-      .connect("mongodb://user1:pass@localhost:27017/api-db", this.mongooseOptions)
+      .connect('mongodb://user1:pass@localhost:27017/api-db', this.mongooseOptions)
       .then(() => {
-        console.log("MongoDB is connected");
+        console.log('MongoDB is connected');
       })
       .catch((err) => {
         this.count += 1;

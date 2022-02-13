@@ -1,4 +1,4 @@
-import User from "../domains/user";
+import User from '../domains/user';
 
 interface IFindAllUsers {
   execute: () => Promise<User[]>;

@@ -1,7 +1,7 @@
-import { Request, Response } from "express";
-import User from "../../../../core/domains/user";
-import IFindAllUsers from "../../../../core/usecases/find-all-users.interface";
-import IUserResponse from "../models/responses/user-response.interface";
+import { Request, Response } from 'express';
+import User from '../../../../core/domains/user';
+import IFindAllUsers from '../../../../core/usecases/find-all-users.interface';
+import IUserResponse from '../models/responses/user-response.interface';
 
 class GetAllUsers {
   constructor(private readonly findAllUsers: IFindAllUsers) {

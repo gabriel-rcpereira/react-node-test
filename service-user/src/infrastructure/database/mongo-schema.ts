@@ -1,6 +1,10 @@
-import { Model } from "mongoose";
-import mongooseService from "./mongoose-service";
-import IUserDocument from "./user-document.interface";
+import { Model } from 'mongoose';
+import mongooseService from './mongoose-service';
+import IUserDocument from './user-document.interface';
+
+interface IDocument {
+  UserDocument: Model<IUserDocument>;
+}
 
 class MongoSchema {
   private readonly Schema = mongooseService.getMongoose().Schema;
@@ -8,15 +12,21 @@ class MongoSchema {
   private readonly UserDocument: Model<IUserDocument>;
 
   constructor() {
-    const userSchema = this.createSchemas();
-    this.UserDocument = mongooseService.getMongoose().model("user", userSchema);
+    this.UserDocument = this.createUserDocument();
   }
 
-  public get userDocument(): Model<IUserDocument> {
-    return this.UserDocument;
+  public get document(): IDocument {
+    return {
+      UserDocument: this.UserDocument
+    };
   }
 
-  private createSchemas = () => new this.Schema({
+  private createUserDocument = () => {
+    const userSchema = this.createUserSchema();
+    return mongooseService.getMongoose().model('user', userSchema);
+  };
+
+  private createUserSchema = () => new this.Schema({
     _id: String,
     firstName: String,
     surname: String,

@@ -1,5 +1,5 @@
 interface IUserResponse {
-  id: number;
+  id: string | undefined;
   firstName: string;
   surname: string;
   birthdate: Date;

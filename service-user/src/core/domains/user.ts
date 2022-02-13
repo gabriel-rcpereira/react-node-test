@@ -1,10 +1,10 @@
 class User {
   constructor(
-    public id: number,
     public firstName: string,
     public surname: string,
     public birthdate: Date,
-    public country: string
+    public country: string,
+    public id?: string
   ) {
 
   }
