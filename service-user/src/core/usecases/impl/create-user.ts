@@ -9,13 +9,13 @@ class CreateUser implements ICreateUser {
   }
 
   public execute = async (newUser: User): Promise<User> => {
+    await newUser.validateNewUser();
+
     const foundUser = await this.userManagerAdapter.retrieveUserByNameAndBirthdate(
       newUser.firstName,
       newUser.surname,
       newUser.birthdate
     );
-
-    console.log('>>>', foundUser);
 
     if (foundUser) {
       throw new ResourceAlreadyCreatedException('User already created.');

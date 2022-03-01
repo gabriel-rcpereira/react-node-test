@@ -32,12 +32,12 @@ class PostUser {
     }
   };
 
-  private mapToUser = (newUserRequest: IUserRequest): User => new User(
-    newUserRequest.firstName,
-    newUserRequest.surname,
-    newUserRequest.birthdate,
-    newUserRequest.country
-  );
+  private mapToUser = (newUserRequest: IUserRequest): User => new User({
+    firstName: newUserRequest.firstName,
+    surname: newUserRequest.surname,
+    birthdate: newUserRequest.birthdate,
+    country: newUserRequest.country
+  });
 }
 
 export default PostUser;

@@ -1,8 +1,9 @@
 import express from 'express';
 import * as http from 'http';
 import cors from 'cors';
+
 import UserRouter from './gateways/in/rest/routers/user-router';
-import UserRepository from './gateways/out/mongo/user-repository';
+import UserRepository from './gateways/out/mongo/repositories/user-repository';
 import MongoSchema from './infrastructure/database/mongo-schema';
 import FindAllUsers from './core/usecases/impl/find-all-users';
 import CreateUser from './core/usecases/impl/create-user';

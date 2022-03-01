@@ -1,6 +1,6 @@
 import { Model } from 'mongoose';
 import mongooseService from './mongoose-service';
-import IUserDocument from './user-document.interface';
+import IUserDocument from '../../gateways/out/mongo/documents/user-document.interface';
 
 interface IDocument {
   UserDocument: Model<IUserDocument>;

@@ -1,8 +1,8 @@
 import { Model } from 'mongoose';
 import shortid from 'shortid';
-import User from '../../../core/domains/user';
-import IUserManagerAdapter from '../../../core/outbound/user-manager-adapter.interface';
-import IUserDocument from '../../../infrastructure/database/user-document.interface';
+import User from '../../../../core/domains/user';
+import IUserManagerAdapter from '../../../../core/outbound/user-manager-adapter.interface';
+import IUserDocument from '../documents/user-document.interface';
 
 class UserRepository implements IUserManagerAdapter {
   constructor(private readonly UserDocument: Model<IUserDocument>) {
@@ -10,13 +10,13 @@ class UserRepository implements IUserManagerAdapter {
   }
 
   public findAll = async (): Promise<User[]> => (await this.UserDocument.find().exec())
-    .map((user) => (new User(
-      user.firstName,
-      user.surname,
-      user.birthdate,
-      user.country,
-      user._id
-    )));
+    .map((user) => (new User({
+      firstName: user.firstName,
+      surname: user.surname,
+      birthdate: user.birthdate,
+      country: user.country,
+      id: user._id
+    })));
 
   public create = async (newUser: User): Promise<User> => {
     const newUserDocument = await new this.UserDocument({
@@ -43,13 +43,13 @@ class UserRepository implements IUserManagerAdapter {
     return foundUserDocument && this.mapToUser(foundUserDocument);
   };
 
-  private mapToUser = (userDocument: IUserDocument) => new User(
-    userDocument.firstName,
-    userDocument.surname,
-    userDocument.birthdate,
-    userDocument.country,
-    userDocument._id
-  );
+  private mapToUser = (userDocument: IUserDocument) => new User({
+    firstName: userDocument.firstName,
+    surname: userDocument.surname,
+    birthdate: userDocument.birthdate,
+    country: userDocument.country,
+    id: userDocument._id
+  });
 }
 
 export default UserRepository;

@@ -1,8 +1,9 @@
 import { NextFunction, Request, Response } from 'express';
+import { ValidationError } from 'yup';
 import ResourceAlreadyCreatedException from '../../../../core/exceptions/resource-already-created';
 
 interface IErrorDetail {
-  error: string;
+  errors: string[];
 }
 
 class ApiErrorHandler {
@@ -13,7 +14,12 @@ class ApiErrorHandler {
     next: NextFunction
   ): void => {
     if (error instanceof ResourceAlreadyCreatedException) {
-      res.status(409).send({ error: error.message });
+      res.status(409).send({ errors: [error.message] });
+    }
+
+    if (error instanceof ValidationError) {
+      const errors = error.errors.map((s) => s.split('\n')).flatMap((s) => s);
+      res.status(400).send({ errors });
     }
 
     next();
